@@ -8,6 +8,7 @@ public class Main {
     public static void main(String[] args) {
 
         String opcionPc;
+        int cantidadPartidasJugador;
 
         int puntosJugador = 0;
         int puntosPc = 0;
@@ -29,22 +30,14 @@ public class Main {
         System.out.print("Digita el nombre de usuario: ");
         nombreUsuario = input.nextLine();
 
-        System.out.println("Hola " + nombreUsuario + ". Escribe tu opción de juego: \n 1. Piedra \n 2. Papel \n 3. Tijera \n");
-        opcionJugador = input.nextLine().toLowerCase();
-
-        //2. y 3. Clasificar y validar datos ingresados
-        if (opcionJugador.equals("papel") || opcionJugador.equals("tijera") || opcionJugador.equals("piedra")){
-            bandera = true;
-        }
-        else {
-            System.out.println("Escribe una opción valida (Piedra, Papel o Tijera)");
-        }
+        System.out.print(nombreUsuario+ ", digite la cantidad de partidas que quiere jugar: ");
+        cantidadPartidasJugador = input.nextInt();
 
         //4. Implementar ciclo
 
         int counter = 0;
 
-        while(bandera && counter < 3){
+        while(counter < cantidadPartidasJugador){
             counter++;
 
             //5. Generando la opción del computador
@@ -63,40 +56,55 @@ public class Main {
                 opcionPc = "tijera";
             }
 
-            System.out.println("El usuario elige: " + opcionJugador);
-            System.out.println("El computador elige: " + opcionPc);
+            System.out.println("Escribe tu opción de juego: \n 1. Piedra \n 2. Papel \n 3. Tijera \n");
+            opcionJugador = input.next().toLowerCase();
+
+            if (opcionJugador.equals("papel") || opcionJugador.equals("tijera") || opcionJugador.equals("piedra")){
+
+                System.out.println("El usuario elige: " + opcionJugador);
+                System.out.println("El computador elige: " + opcionPc);
+
+                if (opcionJugador.equals(opcionPc)){
+                    System.out.println("Empate");
+                    System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
+                }
+                else if (opcionJugador.equals("piedra") && opcionPc.equals("tijera")){
+                    System.out.println("Ganó el jugador");
+                    puntosJugador++;
+                    System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
+
+                }
+                else if (opcionJugador.equals("tijera") && opcionPc.equals("papel")) {
+                    System.out.println("Ganó el jugador");
+                    puntosJugador++;
+                    System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
+
+                }
+                else if (opcionJugador.equals("papel") && opcionPc.equals("piedra")) {
+                    System.out.println("Ganó el jugador");
+                    puntosJugador++;
+                    System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
+
+                }
+                else{
+                    puntosPc++;
+                    System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
+
+                }
+
+            }
+            else {
+                System.out.println("Escribe una opción valida (Piedra, Papel o Tijera)");
+            }
+
+
+
 
 
 
             // 6. Elegir el ganador
 
-            if (opcionJugador.equals(opcionPc)){
-                System.out.println("Empate");
-                System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
-            }
-            else if (opcionJugador.equals("piedra") && opcionPc.equals("tijera")){
-                System.out.println("Ganó el jugador");
-                puntosJugador++;
-                System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
 
-            }
-            else if (opcionJugador.equals("tijera") && opcionPc.equals("papel")) {
-                System.out.println("Ganó el jugador");
-                puntosJugador++;
-                System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
-
-            }
-            else if (opcionJugador.equals("papel") && opcionPc.equals("piedra")) {
-                System.out.println("Ganó el jugador");
-                puntosJugador++;
-                System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
-
-            }
-            else{
-                puntosPc++;
-                System.out.println("puntos pc: " + puntosPc + "\npuntos jugador: " + puntosJugador);
-
-            }
 
             System.out.println("\n-------------------------------------");
 
@@ -116,4 +124,6 @@ public class Main {
         * 2: Implementar cuantas ganó el humano o la maquina
         * 3: Implementar cuantas partidas quiere jugar el humano*/
     }
+
+
 }

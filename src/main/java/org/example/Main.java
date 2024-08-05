@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.Locale;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -119,10 +118,7 @@ public class Main {
             System.out.println("Ganó: " + nombreUsuario);
         }
 
-        /*TAREA:
-        * 1: Implementar que el jugador juege tres veces
-        * 2: Implementar cuantas ganó el humano o la maquina
-        * 3: Implementar cuantas partidas quiere jugar el humano*/
+
     }
 
 

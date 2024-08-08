@@ -94,16 +94,10 @@ public class Main {
             }
             else {
                 System.out.println("Escribe una opción valida (Piedra, Papel o Tijera)");
+                break;
             }
 
-
-
-
-
-
             // 6. Elegir el ganador
-
-
 
             System.out.println("\n-------------------------------------");
 
@@ -118,6 +112,9 @@ public class Main {
             System.out.println("Ganó: " + nombreUsuario);
         }
 
+        System.out.println("///////////////////////////////////////////////////////////////////");
+
+        System.out.println("///////////////////////GRACIAS POR JUGAR///////////////////////////");
 
     }
 
